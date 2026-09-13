@@ -545,6 +545,8 @@
         font-weight: 800;
     }
 
+    /* تنسيق الدرجات الأقل من 50 والغياب */
+    .grade-fail,
     .grade-absent {
         color: var(--danger) !important;
     }
@@ -627,14 +629,39 @@
     }
 
     .wa-card {
+        position: relative;
         background: #fff;
         width: 100%;
         max-width: 440px;
         border-radius: 24px;
-        padding: 30px 22px 24px;
+        padding: 35px 22px 24px;
         text-align: center;
         box-shadow: 0 25px 60px rgba(0,0,0,0.3);
         animation: popUp 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .wa-close-btn {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 34px;
+        height: 34px;
+        background: #f1f5f9;
+        border: none;
+        border-radius: 50%;
+        color: #64748b;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .wa-close-btn:hover {
+        background: #fee2e2;
+        color: #ef4444;
+        transform: rotate(90deg);
     }
 
     @keyframes popUp {
@@ -649,8 +676,8 @@
     }
 
     .wa-icon-ring {
-        width: 76px;
-        height: 76px;
+        width: 72px;
+        height: 72px;
         background: #e8fbf0;
         border: 2px solid #bdf1d2;
         border-radius: 50%;
@@ -659,12 +686,12 @@
         align-items: center;
         justify-content: center;
         color: var(--wa-green);
-        font-size: 38px;
+        font-size: 36px;
         box-shadow: 0 8px 20px rgba(37, 211, 102, 0.15);
     }
 
     .wa-card h2 {
-        font-size: 20px;
+        font-size: 19px;
         font-weight: 800;
         color: #1e293b;
         margin-bottom: 8px;
@@ -686,7 +713,7 @@
         color: #0f172a;
         font-weight: 700;
         font-size: 13px;
-        margin-top: 4px;
+        margin-top: 5px;
     }
 
     .wa-link-btn {
@@ -695,12 +722,12 @@
         justify-content: center;
         gap: 10px;
         width: 100%;
-        height: 52px;
+        height: 50px;
         background: linear-gradient(135deg, var(--wa-green), var(--wa-green-dark));
         color: #fff;
         text-decoration: none;
         border-radius: 14px;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 800;
         font-family: inherit;
         cursor: pointer;
@@ -713,28 +740,23 @@
         box-shadow: 0 10px 25px rgba(37, 211, 102, 0.40);
     }
 
-    .wa-confirm-btn {
-        display: none;
+    .wa-skip-btn {
+        display: block;
         width: 100%;
-        height: 48px;
-        margin-top: 12px;
-        background: #f0f4f9;
-        color: #1e293b;
-        border: 1.5px solid #d5dfec;
-        border-radius: 14px;
-        font-size: 14px;
-        font-weight: 800;
+        background: none;
+        border: none;
+        color: #8a99ad;
+        font-size: 12.5px;
+        font-weight: 600;
         font-family: inherit;
+        margin-top: 14px;
         cursor: pointer;
+        text-decoration: underline;
         transition: .2s;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
     }
 
-    .wa-confirm-btn:hover {
-        background: #e2eaf4;
-        border-color: #cbd5e1;
+    .wa-skip-btn:hover {
+        color: #475569;
     }
 
     /* ================= MOBILE ================= */
@@ -1084,14 +1106,18 @@
 <!-- WHATSAPP POPUP MODAL -->
 <div id="waModal" class="wa-overlay" style="display: none;">
     <div class="wa-card">
+        <button class="wa-close-btn" onclick="closeWaModal()" title="إغلاق">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
         <div class="wa-icon-ring">
             <i class="fa-brands fa-whatsapp"></i>
         </div>
 
-        <h2>تنبيه هام للطلاب</h2>
+        <h2>تابعونا على واتساب</h2>
 
         <p>
-            للاستعلام عن النتيجة ومتابعة أخبار القبول والجامعات، يجب متابعة قناتنا الرسمية على واتساب:
+            لمتابعة آخر مستجدات وتفاصيل القبول والجامعات أولاً بأول:
             <br>
             <span class="channel-badge">قناة الشهادة السودانية 🫆❤</span>
         </p>
@@ -1101,20 +1127,14 @@
             target="_blank"
             rel="noopener noreferrer"
             class="wa-link-btn"
-            id="waJoinBtn"
-            onclick="handleWaFollowClick()"
+            onclick="closeWaModal()"
         >
             <i class="fa-brands fa-whatsapp"></i>
-            متابعة القناة على واتساب
+            متابعة القناة
         </a>
 
-        <button
-            id="waConfirmBtn"
-            class="wa-confirm-btn"
-            onclick="completeFollow()"
-        >
-            <i class="fa-solid fa-check"></i>
-            تمت المتابعة، الاستعلام الآن
+        <button class="wa-skip-btn" onclick="closeWaModal()">
+            تخطي ومتابعة الاستعلام
         </button>
     </div>
 </div>
@@ -1143,38 +1163,22 @@ const NORTHERN_MAX = 477687;
 
 /*
 ==================================================
-التحقق من متابعة واتساب عند فتح الموقع
+التحكم في نافذة واتساب
 ==================================================
 */
 
-const WA_STORAGE_KEY = "sudan_cert_wa_followed";
+const WA_DISMISSED_KEY = "sudan_cert_wa_dismissed";
 
 window.addEventListener("DOMContentLoaded", () => {
-    checkWaFollowStatus();
+    const isDismissed = sessionStorage.getItem(WA_DISMISSED_KEY);
+    if (!isDismissed) {
+        document.getElementById("waModal").style.display = "flex";
+    }
 });
 
-function checkWaFollowStatus() {
-    const isFollowed = localStorage.getItem(WA_STORAGE_KEY);
-    const modal = document.getElementById("waModal");
-
-    if (!isFollowed) {
-        modal.style.display = "flex";
-    } else {
-        modal.style.display = "none";
-    }
-}
-
-function handleWaFollowClick() {
-    // إظهار زر التأكيد للمستخدم فور النقر على الرابط
-    const confirmBtn = document.getElementById("waConfirmBtn");
-    confirmBtn.style.display = "flex";
-}
-
-function completeFollow() {
-    // حفظ حالة المتابعة وإغلاق النافذة
-    localStorage.setItem(WA_STORAGE_KEY, "true");
-    const modal = document.getElementById("waModal");
-    modal.style.display = "none";
+function closeWaModal() {
+    sessionStorage.setItem(WA_DISMISSED_KEY, "true");
+    document.getElementById("waModal").style.display = "none";
 }
 
 
@@ -1185,13 +1189,6 @@ function completeFollow() {
 */
 
 async function searchResult() {
-
-    // التأكد من المتابعة قبل الاستعلام
-    if (!localStorage.getItem(WA_STORAGE_KEY)) {
-        document.getElementById("waModal").style.display = "flex";
-        showError("يرجى متابعة القناة على واتساب أولاً لتتمكن من معرفة النتيجة.");
-        return;
-    }
 
     const input =
         document.getElementById("seatInput");
@@ -1432,15 +1429,30 @@ async function searchResult() {
 
 
                 /*
-                غ = غياب
+                تحويل الأرقام (عربي أو إنجليزي) والتحقق:
+                - إذا كانت الدرجة أقل من 50
+                - أو إذا كان غياب (غ أو غياب)
+                تظهر باللون الأحمر
                 */
 
+                const markStr =
+                    String(mark ?? "").trim();
+
+                const normalizedMark =
+                    markStr.replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+
+                const numericMark =
+                    parseFloat(normalizedMark);
+
+
                 if (
-                    String(mark).trim() === "غ"
+                    markStr === "غ" ||
+                    markStr === "غياب" ||
+                    (!isNaN(numericMark) && numericMark < 50)
                 ) {
 
                     markCell.classList.add(
-                        "grade-absent"
+                        "grade-fail"
                     );
 
                 }
