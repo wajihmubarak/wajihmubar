@@ -1,0 +1,1613 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>نتيجة الشهادة الثانوية | الولاية الشمالية</title>
+
+<meta name="description"
+      content="الاستعلام عن نتيجة امتحانات الشهادة الثانوية - الولاية الشمالية">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    :root {
+        --blue: #0866d8;
+        --blue-dark: #064a9e;
+        --green: #159447;
+        --green-dark: #0b7135;
+        --wa-green: #25d366;
+        --wa-green-dark: #1da851;
+
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --text: #172033;
+        --muted: #718096;
+        --border: #e5eaf1;
+
+        --success: #168647;
+        --danger: #dc3545;
+
+        --shadow: 0 15px 45px rgba(21, 39, 66, 0.10);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Cairo", sans-serif;
+        background:
+            linear-gradient(
+                180deg,
+                #0866d8 0,
+                #0866d8 185px,
+                #159447 185px,
+                #159447 215px,
+                var(--bg) 215px,
+                var(--bg) 100%
+            );
+
+        min-height: 100vh;
+        color: var(--text);
+        padding: 25px 15px 40px;
+    }
+
+    .page {
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    .top-header {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 25px;
+    }
+
+    .logo {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 12px;
+
+        border-radius: 50%;
+
+        background: rgba(255,255,255,.16);
+        border: 1px solid rgba(255,255,255,.35);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,.12),
+            inset 0 0 20px rgba(255,255,255,.08);
+    }
+
+    .logo i {
+        font-size: 31px;
+        color: #fff;
+    }
+
+    .top-header h1 {
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 3px;
+    }
+
+    .top-header p {
+        font-size: 13px;
+        color: rgba(255,255,255,.88);
+    }
+
+    /* ================= MAIN CARD ================= */
+
+    .main-card {
+        background: var(--card);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .card-content {
+        padding: 27px 22px 25px;
+    }
+
+    .title-area {
+        text-align: center;
+        margin-bottom: 22px;
+    }
+
+    .title-area .small-icon {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 10px;
+
+        border-radius: 12px;
+
+        background: #eef5ff;
+        color: var(--blue);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 18px;
+    }
+
+    .title-area h2 {
+        font-size: 18px;
+        font-weight: 800;
+        color: #182338;
+    }
+
+    .title-area p {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .input-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #344054;
+    }
+
+    .input-wrapper {
+        position: relative;
+        margin-bottom: 13px;
+    }
+
+    .input-wrapper i {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8b98aa;
+        font-size: 16px;
+    }
+
+    #seatInput {
+        width: 100%;
+        height: 55px;
+
+        border: 1.5px solid var(--border);
+        border-radius: 14px;
+
+        background: #f9fbfd;
+
+        padding: 0 45px 0 15px;
+
+        outline: none;
+
+        font-family: "Cairo", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+
+        color: #182338;
+
+        transition: .2s;
+    }
+
+    #seatInput:focus {
+        border-color: var(--blue);
+        background: #fff;
+
+        box-shadow:
+            0 0 0 4px rgba(8,102,216,.08);
+    }
+
+    #seatInput::placeholder {
+        color: #a5afbd;
+        font-weight: 400;
+    }
+
+    .search-btn {
+        width: 100%;
+        height: 54px;
+
+        border: 0;
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--blue),
+                var(--blue-dark)
+            );
+
+        color: #fff;
+
+        font-family: "Cairo", sans-serif;
+        font-size: 15px;
+        font-weight: 800;
+
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+
+        box-shadow:
+            0 8px 20px rgba(8,102,216,.20);
+
+        transition: .2s;
+    }
+
+    .search-btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .search-btn:active {
+        transform: scale(.98);
+    }
+
+    .search-btn:disabled {
+        opacity: .65;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* ================= ERROR ================= */
+
+    .message {
+        display: none;
+
+        padding: 13px 14px;
+
+        border-radius: 13px;
+
+        margin-top: 15px;
+
+        text-align: center;
+
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .error {
+        background: #fff1f2;
+        border: 1px solid #fecdd3;
+        color: #b42318;
+    }
+
+    .success {
+        background: #ecfdf3;
+        border: 1px solid #b7ebca;
+        color: #087443;
+    }
+
+    /* ================= RESULT ================= */
+
+    #result-card {
+        display: none;
+
+        margin-top: 23px;
+
+        border-top: 1px solid #edf0f4;
+
+        padding-top: 23px;
+
+        animation: resultIn .35s ease;
+    }
+
+    @keyframes resultIn {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .result-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 14px;
+    }
+
+    .result-title-icon {
+        width: 39px;
+        height: 39px;
+
+        border-radius: 11px;
+
+        background: #eaf8f0;
+        color: var(--green);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .result-title h3 {
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .result-title span {
+        display: block;
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 400;
+    }
+
+    /* ================= STUDENT INFO ================= */
+
+    .student-card {
+        background:
+            linear-gradient(
+                135deg,
+                #f7fbff,
+                #f8fcfa
+            );
+
+        border: 1px solid #e6edf3;
+
+        border-radius: 17px;
+
+        padding: 16px;
+
+        margin-bottom: 18px;
+    }
+
+    .student-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        padding: 10px 0;
+
+        border-bottom: 1px dashed #dfe6ed;
+    }
+
+    .student-row:first-child {
+        padding-top: 0;
+    }
+
+    .student-row:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .student-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        color: #758195;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        white-space: nowrap;
+    }
+
+    .student-label i {
+        color: var(--blue);
+        width: 16px;
+        text-align: center;
+    }
+
+    .student-value {
+        text-align: left;
+
+        color: #182338;
+
+        font-size: 13px;
+        font-weight: 800;
+
+        word-break: break-word;
+    }
+
+    /* ================= PERCENTAGE ================= */
+
+    .percentage-box {
+        background:
+            linear-gradient(
+                135deg,
+                #0875df,
+                #0d9b50
+            );
+
+        color: #fff;
+
+        border-radius: 18px;
+
+        padding: 18px;
+
+        text-align: center;
+
+        margin-bottom: 20px;
+
+        box-shadow:
+            0 10px 25px rgba(8,102,216,.16);
+    }
+
+    .percentage-box small {
+        display: block;
+
+        font-size: 12px;
+
+        color: rgba(255,255,255,.82);
+
+        margin-bottom: 3px;
+    }
+
+    .percentage {
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 800;
+    }
+
+    /* ================= GRADES ================= */
+
+    .grades-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 10px;
+    }
+
+    .grades-heading h3 {
+        font-size: 15px;
+        font-weight: 800;
+    }
+
+    .grades-heading span {
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .table-wrap {
+        border: 1px solid #e6ebf0;
+
+        border-radius: 15px;
+
+        overflow: hidden;
+
+        background: #fff;
+    }
+
+    .grades-table {
+        width: 100%;
+
+        border-collapse: collapse;
+    }
+
+    .grades-table th {
+        background: #f5f8fb;
+
+        color: #667085;
+
+        font-size: 12px;
+        font-weight: 800;
+
+        padding: 12px 13px;
+
+        border-bottom: 1px solid #e5eaf0;
+    }
+
+    .grades-table th:first-child {
+        text-align: right;
+    }
+
+    .grades-table th:last-child {
+        text-align: left;
+    }
+
+    .grades-table td {
+        padding: 12px 13px;
+
+        font-size: 13px;
+
+        border-bottom: 1px solid #edf0f3;
+    }
+
+    .grades-table tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .grades-table td:first-child {
+        text-align: right;
+        color: #344054;
+        font-weight: 600;
+    }
+
+    .grades-table td:last-child {
+        text-align: left;
+
+        color: #087443;
+
+        font-weight: 800;
+    }
+
+    .grade-absent {
+        color: var(--danger) !important;
+    }
+
+    /* ================= PRINT ================= */
+
+    .actions {
+        display: flex;
+        gap: 10px;
+
+        margin-top: 18px;
+    }
+
+    .print-btn {
+        width: 100%;
+
+        height: 48px;
+
+        border: 1px solid #dce3ea;
+
+        background: #f8fafc;
+
+        color: #344054;
+
+        border-radius: 12px;
+
+        font-family: "Cairo", sans-serif;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .print-btn:hover {
+        background: #f1f5f9;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer {
+        text-align: center;
+
+        margin-top: 20px;
+
+        color: #667085;
+
+        font-size: 11px;
+
+        line-height: 1.8;
+    }
+
+    .footer strong {
+        color: #344054;
+    }
+
+    /* ================= WHATSAPP POPUP MODAL ================= */
+
+    .wa-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.72);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 99999;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .wa-card {
+        background: #fff;
+        width: 100%;
+        max-width: 440px;
+        border-radius: 24px;
+        padding: 30px 22px 24px;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        animation: popUp 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popUp {
+        from {
+            transform: scale(0.85);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .wa-icon-ring {
+        width: 76px;
+        height: 76px;
+        background: #e8fbf0;
+        border: 2px solid #bdf1d2;
+        border-radius: 50%;
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--wa-green);
+        font-size: 38px;
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.15);
+    }
+
+    .wa-card h2 {
+        font-size: 20px;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 8px;
+    }
+
+    .wa-card p {
+        font-size: 13.5px;
+        color: #5d6d84;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .wa-card .channel-badge {
+        display: inline-block;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        padding: 5px 14px;
+        border-radius: 20px;
+        color: #0f172a;
+        font-weight: 700;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    .wa-link-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        height: 52px;
+        background: linear-gradient(135deg, var(--wa-green), var(--wa-green-dark));
+        color: #fff;
+        text-decoration: none;
+        border-radius: 14px;
+        font-size: 16px;
+        font-weight: 800;
+        font-family: inherit;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(37, 211, 102, 0.30);
+        transition: .2s;
+    }
+
+    .wa-link-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.40);
+    }
+
+    .wa-confirm-btn {
+        display: none;
+        width: 100%;
+        height: 48px;
+        margin-top: 12px;
+        background: #f0f4f9;
+        color: #1e293b;
+        border: 1.5px solid #d5dfec;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 800;
+        font-family: inherit;
+        cursor: pointer;
+        transition: .2s;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .wa-confirm-btn:hover {
+        background: #e2eaf4;
+        border-color: #cbd5e1;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 480px) {
+
+        body {
+            padding: 18px 11px 30px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #0866d8 0,
+                    #0866d8 170px,
+                    #159447 170px,
+                    #159447 198px,
+                    var(--bg) 198px,
+                    var(--bg) 100%
+                );
+        }
+
+        .top-header {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+        }
+
+        .top-header h1 {
+            font-size: 19px;
+        }
+
+        .top-header p {
+            font-size: 11px;
+        }
+
+        .card-content {
+            padding: 23px 16px 20px;
+        }
+
+        .student-row {
+            gap: 8px;
+        }
+
+        .student-value {
+            max-width: 60%;
+        }
+    }
+
+    /* ================= PRINT MODE ================= */
+
+    @media print {
+
+        body {
+            background: #fff !important;
+            padding: 0;
+        }
+
+        .top-header {
+            color: #000;
+        }
+
+        .search-section,
+        .actions,
+        .footer,
+        .wa-overlay {
+            display: none !important;
+        }
+
+        .main-card {
+            box-shadow: none;
+            border: 1px solid #ddd;
+        }
+
+        #result-card {
+            display: block !important;
+        }
+
+        .percentage-box {
+            color: #000;
+            background: #f3f3f3;
+            box-shadow: none;
+            border: 1px solid #ddd;
+        }
+
+        .percentage-box small {
+            color: #555;
+        }
+    }
+</style>
+
+</head><body><div class="page"><!-- HEADER -->
+<header class="top-header">
+
+    <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+
+    <h1>نتيجة الشهادة الثانوية</h1>
+
+    <p>الولاية الشمالية</p>
+
+</header>
+
+
+<!-- MAIN -->
+<main class="main-card">
+
+    <div class="card-content">
+
+        <!-- SEARCH SECTION -->
+        <section class="search-section">
+
+            <div class="title-area">
+
+                <div class="small-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <h2>الاستعلام عن النتيجة</h2>
+
+                <p>
+                    أدخل رقم الجلوس الخاص بالطالب
+                </p>
+
+            </div>
+
+
+            <label class="input-label">
+                رقم الجلوس
+            </label>
+
+            <div class="input-wrapper">
+
+                <i class="fa-solid fa-hashtag"></i>
+
+                <input
+                    type="text"
+                    id="seatInput"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="أدخل رقم الجلوس"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                id="searchBtn"
+                onclick="searchResult()"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                استعلام عن النتيجة
+
+            </button>
+
+        </section>
+
+
+        <!-- ERROR -->
+        <div
+            id="errorMsg"
+            class="message error"
+        ></div>
+
+
+        <!-- SUCCESS -->
+        <div
+            id="successMsg"
+            class="message success"
+        ></div>
+
+
+        <!-- RESULT -->
+        <section id="result-card">
+
+            <div class="result-title">
+
+                <div class="result-title-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <h3>بيانات الطالب</h3>
+                    <span>نتيجة الشهادة الثانوية - الولاية الشمالية</span>
+                </div>
+
+            </div>
+
+
+            <!-- STUDENT -->
+            <div class="student-card">
+
+                <div class="student-row">
+
+                    <div class="student-label">
+                        <i class="fa-solid fa-user"></i>
+                        اسم الطالب
+                    </div>
+
+                    <div
+                        class="student-value"
+                        id="resName"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="student-row">
+
+                    <div class="student-label">
+                        <i class="fa-solid fa-hashtag"></i>
+                        رقم الجلوس
+                    </div>
+
+                    <div
+                        class="student-value"
+                        id="resSeat"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="student-row">
+
+                    <div class="student-label">
+                        <i class="fa-solid fa-school"></i>
+                        المدرسة / المركز
+                    </div>
+
+                    <div
+                        class="student-value"
+                        id="resSchool"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERCENTAGE -->
+            <div class="percentage-box">
+
+                <small>النسبة المئوية</small>
+
+                <div
+                    class="percentage"
+                    id="resPercentage"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <!-- GRADES -->
+            <div class="grades-heading">
+
+                <h3>
+                    المواد والدرجات
+                </h3>
+
+                <span>
+                    تفاصيل النتيجة
+                </span>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table class="grades-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                المادة
+                            </th>
+
+                            <th>
+                                الدرجة
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="gradesBody"></tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+            <div class="actions">
+
+                <button
+                    class="print-btn"
+                    onclick="window.print()"
+                >
+
+                    <i class="fa-solid fa-print"></i>
+
+                    طباعة النتيجة
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div>
+        منصة الاستعلام عن نتائج الشهادة الثانوية
+    </div>
+
+    <strong>
+        الولاية الشمالية
+    </strong>
+
+</footer>
+
+</div>
+
+<!-- WHATSAPP POPUP MODAL -->
+<div id="waModal" class="wa-overlay" style="display: none;">
+    <div class="wa-card">
+        <div class="wa-icon-ring">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <h2>تنبيه هام للطلاب</h2>
+
+        <p>
+            للاستعلام عن النتيجة ومتابعة أخبار القبول والجامعات، يجب متابعة قناتنا الرسمية على واتساب:
+            <br>
+            <span class="channel-badge">قناة الشهادة السودانية 🫆❤</span>
+        </p>
+
+        <a
+            href="https://whatsapp.com/channel/0029VbDboj66RGJ81stbIi1T"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="wa-link-btn"
+            id="waJoinBtn"
+            onclick="handleWaFollowClick()"
+        >
+            <i class="fa-brands fa-whatsapp"></i>
+            متابعة القناة على واتساب
+        </a>
+
+        <button
+            id="waConfirmBtn"
+            class="wa-confirm-btn"
+            onclick="completeFollow()"
+        >
+            <i class="fa-solid fa-check"></i>
+            تمت المتابعة، الاستعلام الآن
+        </button>
+    </div>
+</div>
+
+<script>
+
+/*
+==================================================
+إعداد Firebase
+==================================================
+*/
+
+const DB_BASE_URL =
+    "https://wajih1-c8e5c-default-rtdb.firebaseio.com/students";
+
+
+/*
+==================================================
+نطاق أرقام الجلوس للولاية الشمالية
+==================================================
+*/
+
+const NORTHERN_MIN = 457000;
+const NORTHERN_MAX = 477687;
+
+
+/*
+==================================================
+التحقق من متابعة واتساب عند فتح الموقع
+==================================================
+*/
+
+const WA_STORAGE_KEY = "sudan_cert_wa_followed";
+
+window.addEventListener("DOMContentLoaded", () => {
+    checkWaFollowStatus();
+});
+
+function checkWaFollowStatus() {
+    const isFollowed = localStorage.getItem(WA_STORAGE_KEY);
+    const modal = document.getElementById("waModal");
+
+    if (!isFollowed) {
+        modal.style.display = "flex";
+    } else {
+        modal.style.display = "none";
+    }
+}
+
+function handleWaFollowClick() {
+    // إظهار زر التأكيد للمستخدم فور النقر على الرابط
+    const confirmBtn = document.getElementById("waConfirmBtn");
+    confirmBtn.style.display = "flex";
+}
+
+function completeFollow() {
+    // حفظ حالة المتابعة وإغلاق النافذة
+    localStorage.setItem(WA_STORAGE_KEY, "true");
+    const modal = document.getElementById("waModal");
+    modal.style.display = "none";
+}
+
+
+/*
+==================================================
+البحث عن النتيجة
+==================================================
+*/
+
+async function searchResult() {
+
+    // التأكد من المتابعة قبل الاستعلام
+    if (!localStorage.getItem(WA_STORAGE_KEY)) {
+        document.getElementById("waModal").style.display = "flex";
+        showError("يرجى متابعة القناة على واتساب أولاً لتتمكن من معرفة النتيجة.");
+        return;
+    }
+
+    const input =
+        document.getElementById("seatInput");
+
+    const button =
+        document.getElementById("searchBtn");
+
+    const resultCard =
+        document.getElementById("result-card");
+
+    const errorMsg =
+        document.getElementById("errorMsg");
+
+    const successMsg =
+        document.getElementById("successMsg");
+
+    const gradesBody =
+        document.getElementById("gradesBody");
+
+
+    const seat =
+        input.value.trim();
+
+
+    /*
+    إخفاء الرسائل والنتيجة
+    */
+
+    resultCard.style.display = "none";
+
+    errorMsg.style.display = "none";
+
+    successMsg.style.display = "none";
+
+
+    /*
+    التحقق من الإدخال
+    */
+
+    if (!seat) {
+
+        showError(
+            "يرجى إدخال رقم الجلوس أولاً."
+        );
+
+        return;
+    }
+
+
+    /*
+    يجب أن يكون الرقم أرقام فقط
+    */
+
+    if (!/^\d+$/.test(seat)) {
+
+        showError(
+            "رقم الجلوس يجب أن يحتوي على أرقام فقط."
+        );
+
+        return;
+    }
+
+
+    const seatNumber =
+        Number(seat);
+
+
+    /*
+    التحقق من نطاق الولاية الشمالية
+    */
+
+    if (
+        seatNumber < NORTHERN_MIN ||
+        seatNumber > NORTHERN_MAX
+    ) {
+
+        showError(
+            "هذا الرقم لا يتبع للولاية الشمالية. يرجى التأكد من رقم الجلوس."
+        );
+
+        return;
+    }
+
+
+    /*
+    حالة التحميل
+    */
+
+    button.disabled = true;
+
+    button.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> جاري البحث...';
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${DB_BASE_URL}/${encodeURIComponent(seat)}.json`
+            );
+
+
+        /*
+        خطأ الاتصال
+        */
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Firebase connection error"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        /*
+        لا توجد بيانات
+        */
+
+        if (!data) {
+
+            showError(
+                "لم يتم العثور على نتيجة بهذا الرقم. يرجى التأكد من رقم الجلوس."
+            );
+
+            return;
+        }
+
+
+        /*
+        الاسم
+        */
+
+        document.getElementById("resName")
+            .textContent =
+            data.name || "-";
+
+
+        /*
+        رقم الجلوس
+        */
+
+        document.getElementById("resSeat")
+            .textContent =
+            seat;
+
+
+        /*
+        المدرسة
+        */
+
+        document.getElementById("resSchool")
+            .textContent =
+            data.school || "-";
+
+
+        /*
+        النسبة
+        */
+
+        let percentage =
+            data.percentage ??
+            data.percent ??
+            data.result ??
+            data.total_percentage;
+
+
+        if (
+            percentage !== undefined &&
+            percentage !== null &&
+            percentage !== ""
+        ) {
+
+            let percentageText =
+                String(percentage);
+
+            if (
+                !percentageText.includes("%")
+            ) {
+
+                percentageText += "%";
+
+            }
+
+            document.getElementById(
+                "resPercentage"
+            ).textContent =
+                percentageText;
+
+        } else {
+
+            document.getElementById(
+                "resPercentage"
+            ).textContent =
+                "-";
+
+        }
+
+
+        /*
+        المواد والدرجات
+        */
+
+        gradesBody.innerHTML = "";
+
+
+        if (
+            data.subjects &&
+            typeof data.subjects === "object"
+        ) {
+
+            for (
+                const [subject, mark]
+                of Object.entries(data.subjects)
+            ) {
+
+                const row =
+                    document.createElement("tr");
+
+
+                const subjectCell =
+                    document.createElement("td");
+
+                subjectCell.textContent =
+                    subject;
+
+
+                const markCell =
+                    document.createElement("td");
+
+
+                markCell.textContent =
+                    mark ?? "-";
+
+
+                /*
+                غ = غياب
+                */
+
+                if (
+                    String(mark).trim() === "غ"
+                ) {
+
+                    markCell.classList.add(
+                        "grade-absent"
+                    );
+
+                }
+
+
+                row.appendChild(
+                    subjectCell
+                );
+
+                row.appendChild(
+                    markCell
+                );
+
+                gradesBody.appendChild(
+                    row
+                );
+
+            }
+
+        }
+
+
+        /*
+        إذا لم توجد المواد
+        */
+
+        if (
+            gradesBody.children.length === 0
+        ) {
+
+            const row =
+                document.createElement("tr");
+
+            const cell =
+                document.createElement("td");
+
+            cell.colSpan = 2;
+
+            cell.style.textAlign =
+                "center";
+
+            cell.style.color =
+                "#8a94a6";
+
+            cell.textContent =
+                "لا توجد تفاصيل المواد متاحة حالياً.";
+
+            row.appendChild(cell);
+
+            gradesBody.appendChild(row);
+
+        }
+
+
+        /*
+        عرض النتيجة
+        */
+
+        resultCard.style.display =
+            "block";
+
+
+        successMsg.textContent =
+            "تم العثور على نتيجة الطالب بنجاح.";
+
+        successMsg.style.display =
+            "block";
+
+
+        /*
+        النزول للنتيجة في الهاتف
+        */
+
+        setTimeout(() => {
+
+            resultCard.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 100);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showError(
+            "تعذر الاتصال بقاعدة البيانات. يرجى المحاولة مرة أخرى."
+        );
+
+    } finally {
+
+        button.disabled = false;
+
+        button.innerHTML =
+            '<i class="fa-solid fa-magnifying-glass"></i> استعلام عن النتيجة';
+
+    }
+
+}
+
+
+/*
+==================================================
+عرض رسالة الخطأ
+==================================================
+*/
+
+function showError(message) {
+
+    const errorMsg =
+        document.getElementById("errorMsg");
+
+    errorMsg.textContent =
+        message;
+
+    errorMsg.style.display =
+        "block";
+
+}
+
+
+/*
+==================================================
+منع إدخال أي شيء غير الأرقام
+==================================================
+*/
+
+document
+    .getElementById("seatInput")
+    .addEventListener(
+        "input",
+        function () {
+
+            this.value =
+                this.value.replace(
+                    /\D/g,
+                    ""
+                );
+
+        }
+    );
+
+
+/*
+==================================================
+زر Enter
+==================================================
+*/
+
+document
+    .getElementById("seatInput")
+    .addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                searchResult();
+
+            }
+
+        }
+    );
+
+</script></body>
+</html>
